@@ -1,6 +1,7 @@
-package com.capg.sprint.Pixogram;
+package pixogram.sprint1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,11 +11,11 @@ import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="comments")
-public class Comments {
+public class Comments implements List<Comments> {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	String commentId;
+	int commentId;
 	private String message;
 	//ArrayList<String> commentList=new ArrayList<>();
 	
@@ -26,14 +27,7 @@ public class Comments {
 		super();
 		this.message = comment;
 	}
-//
-//	public String getCommentId() {
-//		return commentId;
-//	}
-//
-//	public void setCommentId(String commentId) {
-//		this.commentId = commentId;
-//	}
+
 	public String getComment() {
 		return message;
 	}
@@ -41,12 +35,14 @@ public class Comments {
 	public void setComment(String comment) {
 		this.message = comment;
 	}
-	
 
 	@Override
 	public String toString() {
-		return "Comments [message=" + message + ", commentList=" + commentList + "]";
+		return "Comments [commentId=" + commentId + ", message=" + message + "]";
 	}
 	
 
+	
+
 }
+
